@@ -17,7 +17,7 @@ If our project is helpful for your research, please consider citing :
 }
 ```
 ## 1. Setup Env & Download Pre-train MoMask
-Our model is devloped based on [MoMask](https://github.com/EricGuo5513/momask-codes). You can follow the setup instructions provided there, or refer to the steps below. (The environment setup is the same but we change conda env name to "BAMM")
+Our model is devloped based on [MoMask](https://github.com/EricGuo5513/momask-codes). You can follow the setup instructions provided there, or refer to the steps below. (The environment setup is the same but we change conda env name to "CDAMD")
 <details>
   
 ### 1. Conda Environment
