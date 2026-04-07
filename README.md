@@ -9,11 +9,11 @@ Please visit our [**webpage**](https://fly-dk.github.io/CDAMD/) for more details
 
 If our project is helpful for your research, please consider citing :
 ``` 
-@inproceedings{pinyoanuntapong2024bamm,
-  title={BAMM: Bidirectional Autoregressive Motion Model}, 
-  author={Ekkasit Pinyoanuntapong and Muhammad Usama Saleem and Pu Wang and Minwoo Lee and Srijan Das and Chen Chen}, 
-  booktitle="Computer Vision -- ECCV 2024",
-  year={2024},
+@inproceedings{xxx,
+  title={Coordinate-Based Dual-Constrained Autoregressive MotionGeneration}, 
+  author={xxx}, 
+  booktitle="xx",
+  year={2026},
 }
 ```
 ## 1. Setup Env & Download Pre-train MoMask
@@ -77,43 +77,32 @@ cp -r ../HumanML3D/HumanML3D ./dataset/HumanML3D
 
 </details>
 
-## 2. Download Pre-train BAMM and Move MoMask to "log" folder
+<!-- ## 2. Download Pre-train BAMM and Move MoMask to "log" folder
 ```
 bash prepare/download_models_BAMM.sh
+``` -->
+
+## 2. Train
+### 2.1 VQVAE
 ```
-
-## 3. Generate
-
+python train_vq.py \
+    --dataset_name t2m \
+    --name abs_VQVAE_dp1_b256 \
+    --batch_size 256 \
+    --gpu_id 0
+``` 
+### 2.2 AE
 ```
-python gen_t2m.py \
-    --res_name tres_nlayer8_ld384_ff1024_rvq6ns_cdp0.2_sw \
-    --name 2024-02-14-14-27-29_8_GPT_officialTrans_2iterPrdictEnd \
-    --text_prompt "the person crouches and walks forward." \
-    --motion_length -1 \
-    --repeat_times 3 \
-    --gpu_id 0 \
-    --seed 1 \
-    --ext generation_name_nopredlen
+python train_AE.py --name AE --dataset_name t2m --batch_size 256 --epoch 50 --lr_decay 0.05
 ```
-- --text_prompt: text
-- --motion_length: -1 the model will automatically predict length otherwise it will use the input as a length
-- --seed: Sets the random seed for generation, enabling reproducibility of results across different runs. With a fixed seed, you will get the same generation in each run, making results consistent.
-**Note:**
-If you'd like to see variation in the generation results, see the generation from other "repeat_times" or change the seed value.
-- --ext: generation name
-It will generate to "generation" directory.
-
-
+### 2.3 CDAMD
+```
+python train_abs_transformer.py --dataset_name t2m --name dual_sparse_token_trans_4_all_quants --batch_size 64 --max_epoch 500 --milestones 50000 --trans cross_attn --latent_dim 512 --ff_size 1024 --n_heads 8 --n_layers 4 --gpu_id 0
+```
 ## 4. Evaluation
 <details>
 
-
-
 ```
-python eval_t2m_trans_res.py \
-    --res_name tres_nlayer8_ld384_ff1024_rvq6ns_cdp0.2_sw \
-    --name 2024-02-14-14-27-29_8_GPT_officialTrans_2iterPrdictEnd \
-    --gpu_id 1 \
-    --ext LOG_NAME
+python eval_t2m_trans_abs.py --name dual_sparse_token_trans_4 --dataset_name t2m --gpu_id 0 --cond_scale 4 --time_steps 10 --ext your_eval --checkpoints_dir ./log/t2m
 ```
 </details>

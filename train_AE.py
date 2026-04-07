@@ -196,7 +196,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', type=str, default='AE')
     parser.add_argument('--model', type=str, default='AE_Model')
-    parser.add_argument('--dataset_dir', type=str, default='/home/dingkang/BAMM/dataset')
+    parser.add_argument('--dataset_dir', type=str, default='/dataset')
     parser.add_argument('--dataset_name', type=str, default='t2m')
     parser.add_argument('--batch_size', default=256, type=int)
     parser.add_argument('--window_size', type=int, default=64)
