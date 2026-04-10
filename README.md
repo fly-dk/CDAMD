@@ -7,15 +7,6 @@ The official PyTorch implementation of the paper [**"Coordinate-Based Dual-Const
 Please visit our [**webpage**](https://fly-dk.github.io/CDAMD/) for more details.
 
 
-If our project is helpful for your research, please consider citing :
-``` 
-@inproceedings{xxx,
-  title={Coordinate-Based Dual-Constrained Autoregressive MotionGeneration}, 
-  author={xxx}, 
-  booktitle="xx",
-  year={2026},
-}
-```
 ## 1. Setup Env & Download Pre-train MoMask
 Our model is devloped based on [MoMask](https://github.com/EricGuo5513/momask-codes). You can follow the setup instructions provided there, or refer to the steps below. (The environment setup is the same but we change conda env name to "CDAMD")
 <details>
@@ -109,7 +100,7 @@ python eval_t2m_trans_abs.py --name dual_sparse_token_trans_4 --dataset_name t2m
 
 
 ## Reference
-Please cite our work if you use this code.
+If our project is helpful for you, please consider citing :
 ```
 @misc{ding2026coordinatebaseddualconstrainedautoregressivemotion,
       title={Coordinate-Based Dual-Constrained Autoregressive Motion Generation}, 
