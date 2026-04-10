@@ -108,6 +108,7 @@ python eval_t2m_trans_abs.py --name dual_sparse_token_trans_4 --dataset_name t2m
 </details>
 
 
+## Reference
 Please cite our work if you use this code.
 ```
 @misc{ding2026coordinatebaseddualconstrainedautoregressivemotion,
