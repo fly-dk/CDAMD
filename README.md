@@ -1,4 +1,4 @@
-# [Coordinate-Based Dual-Constrained Autoregressive MotionGeneration](https://fly-dk.github.io/CDAMD/)  (arXiv 2026)
+# [Coordinate-Based Dual-Constrained Autoregressive MotionGeneration](https://arxiv.org/abs/2604.08088), [Project](https://fly-dk.github.io/CDAMD/), [arXiv](https://arxiv.org/abs/2604.08088)
 
 [![arXiv](https://img.shields.io/badge/arXiv-<2403.19435>-<COLOR>.svg)](https://arxiv.org/abs/2403.19435)
 
@@ -106,3 +106,17 @@ python train_abs_transformer.py --dataset_name t2m --name dual_sparse_token_tran
 python eval_t2m_trans_abs.py --name dual_sparse_token_trans_4 --dataset_name t2m --gpu_id 0 --cond_scale 4 --time_steps 10 --ext your_eval --checkpoints_dir ./log/t2m
 ```
 </details>
+
+
+Please cite our work if you use this code.
+```
+@misc{ding2026coordinatebaseddualconstrainedautoregressivemotion,
+      title={Coordinate-Based Dual-Constrained Autoregressive Motion Generation}, 
+      author={Kang Ding and Hongsong Wang and Jie Gui and Liang Wang},
+      year={2026},
+      eprint={2604.08088},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2604.08088}, 
+}
+```
