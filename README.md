@@ -1,7 +1,5 @@
 # [Coordinate-Based Dual-Constrained Autoregressive MotionGeneration](https://arxiv.org/abs/2604.08088), [Project](https://fly-dk.github.io/CDAMD/), [arXiv](https://arxiv.org/abs/2604.08088)
 
-[![arXiv](https://img.shields.io/badge/arXiv-<2403.19435>-<COLOR>.svg)](https://arxiv.org/abs/2403.19435)
-
 The official PyTorch implementation of the paper [**"Coordinate-Based Dual-Constrained Autoregressive MotionGeneration"**](https://arxiv.org/abs/2403.19435).
 
 Please visit our [**webpage**](https://fly-dk.github.io/CDAMD/) for more details.
